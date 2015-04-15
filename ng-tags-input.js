@@ -172,7 +172,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","$window","tagsInputCon
     }
 
     return {
-        restrict: 'E',
+        restrict: 'EA',
         require: 'ngModel',
         scope: {
             tags: '=ngModel',
@@ -618,7 +618,7 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","$q","tagsInp
     }
 
     return {
-        restrict: 'E',
+        restrict: 'EA',
         require: '^tagsInput',
         scope: { source: '&' },
         templateUrl: 'ngTagsInput/auto-complete.html',
