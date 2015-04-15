@@ -20,7 +20,7 @@ var KEYS = {
     down: 40,
     left: 37,
     right: 39,
-    delete: 46,
+    del: 46,
     comma: 188
 };
 
@@ -259,7 +259,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","$window","tagsInputCon
             };
         }],
         link: function(scope, element, attrs, ngModelCtrl) {
-            var hotkeys = [KEYS.enter, KEYS.comma, KEYS.space, KEYS.backspace, KEYS.delete, KEYS.left, KEYS.right],
+            var hotkeys = [KEYS.enter, KEYS.comma, KEYS.space, KEYS.backspace, KEYS.del, KEYS.left, KEYS.right],
                 tagList = scope.tagList,
                 events = scope.events,
                 options = scope.options,
@@ -399,7 +399,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","$window","tagsInputCon
                     addKeys[KEYS.space] = options.addOnSpace;
 
                     shouldAdd = !options.addFromAutocompleteOnly && addKeys[key];
-                    shouldRemove = (key === KEYS.backspace || key === KEYS.delete) && tagList.selected;
+                    shouldRemove = (key === KEYS.backspace || key === KEYS.del) && tagList.selected;
                     shouldEditLastTag = key === KEYS.backspace && scope.newTag.text.length === 0 && options.enableEditingLastTag;
                     shouldSelect = (key === KEYS.backspace || key === KEYS.left || key === KEYS.right) && scope.newTag.text.length === 0 && !options.enableEditingLastTag;
 
